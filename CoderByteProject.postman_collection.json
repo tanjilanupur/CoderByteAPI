@@ -1,0 +1,157 @@
+{
+	"info": {
+		"_postman_id": "c0427f5a-1e03-4bb1-8880-32cee35f3baa",
+		"name": "CoderByteProject",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET",
+			"item": [
+				{
+					"name": "Testcase2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"bodyData = JSON.parse(responseBody)\r",
+									"fname = bodyData.data.first_name\r",
+									"lname = bodyData.data.last_name\r",
+									"\r",
+									"pm.test(\"Verify Firstname\", function () {\r",
+									"    pm.expect(fname).to.include(\"Eve\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify Lastname\", function () {\r",
+									"    pm.expect(lname).to.include(\"Holt\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/users/4",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Testcase4",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"    \r",
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/users/23",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"23"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Testcase3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"bodyData = JSON.parse(responseBody)\r",
+									"fname = bodyData.data.first_name\r",
+									"lname = bodyData.data.last_name\r",
+									"\r",
+									"pm.test(\"Verify Firstname\", function () {\r",
+									"    pm.expect(fname).to.include(\"Tracey\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify Lastname\", function () {\r",
+									"    pm.expect(lname).to.include(\"Ramos\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/users/6",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://reqres.in"
+		}
+	]
+}
